@@ -5,7 +5,7 @@ Subliminal script to run as crontab entry in subliminal jail<br>
 
 Made a script that runs with crontab & bash.<br>
 You'll have to install bash first<br>
-cd /usr/ports/shells/bash/ && make install clean
+<code>cd /usr/ports/shells/bash/ && make install clean</code>
 
 crontab -e <br>
 says<br>
