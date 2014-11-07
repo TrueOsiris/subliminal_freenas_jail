@@ -59,8 +59,9 @@ qfile() {
 			qlog "writing subliminal input line to $1"
 			lang1="nl"
 			lang2="en"
-			comnd1="subliminal -l $lang1 --verbose --single --providers podnapisi opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username trueosiris --addic7ed-password Elvis001 -- \"$3/$2\""
-			comnd2="subliminal -l $lang2 --verbose --providers podnapisi opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username trueosiris --addic7ed-password Elvis001 -- \"$3/$2\""			
+			#comnd1="subliminal -l $lang1 --verbose --single --providers podnapisi opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username trueosiris --addic7ed-password Elvis001 -- \"$3/$2\""
+			comnd1="subliminal -l $lang1 --verbose --single --providers opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username myuser --addic7ed-password mypass -- \"$3/$2\""
+			comnd2="subliminal -l $lang2 -q --providers opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username myuser --addic7ed-password mypass -- \"$3/$2\""			
 			if grep -q "$3@@$2" "$1"
 			then
 				# check if sub already present
