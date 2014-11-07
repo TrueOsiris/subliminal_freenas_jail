@@ -59,14 +59,15 @@ qfile() {
 			qlog "writing subliminal input line to $1"
 			lang1="nl"
 			lang2="en"
-			comnd1="subliminal -l $lang1 --addic7ed-username youraddicteduser --addic7ed-password youraddictedpass -- \"$3/$2\""
-			comnd2="subliminal -l $lang2 --addic7ed-username youraddicteduser --addic7ed-password youraddictedpass -- \"$3/$2\""			
+			comnd1="subliminal -l $lang1 --verbose --single --providers podnapisi opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username trueosiris --addic7ed-password Elvis001 -- \"$3/$2\""
+			comnd2="subliminal -l $lang2 --verbose --providers podnapisi opensubtitles thesubdb tvsubtitles addic7ed --addic7ed-username trueosiris --addic7ed-password Elvis001 -- \"$3/$2\""			
 			if grep -q "$3@@$2" "$1"
 			then
 				# check if sub already present
 				movie=$2
 				prefix=${movie:0:-4}
-				sub1="$prefix.$lang1.srt"
+				#sub1="$prefix.$lang1.srt"
+				sub1="$prefix.srt"
 				sub2="$prefix.$lang2.srt"
 				if [ ! -f $sub1 ]; then
 					qlog "File $sub1 not found. Running subcheck:" 1
