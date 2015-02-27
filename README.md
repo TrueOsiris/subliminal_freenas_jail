@@ -63,13 +63,12 @@ cd /usr/ports/devel/py-dogpile.cache && make install clean BATCH=yes<br>
 cd /usr/ports/devel/py-babelfish && make install clean BATCH=yes<br>
 cd /usr/ports/textproc/py-charade && make install clean BATCH=yes<br>
 cd /usr/ports/textproc/py-pysrt && make install clean BATCH=yes<br>
-
 cd /usr/share/subliminal</code><br>
 
 
 Finally, build & install the package<br>
-<code>python2.7 setup.py build<br>
-python2.7 setup.py install</code><br>
+<code>python2.7 setup.py build</code><br>
+<code>python2.7 setup.py install</code><br>
 
 Now u can use the subliminal command<br>
 
