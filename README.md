@@ -22,10 +22,10 @@ This share is added as storage to the subliminal jail.<br>
 In fact, any share with movie files that can be added to the jail will do.<br>
 
 - create a standard jail, preferably enable ssh & login (or access the jail shell via freenas gui)<br>
-<code>portsnap fetch extract<br>
-mkdir /mnt/download<br>
-chown nobody:nogroup /mnt/download<br>
-chmod 777 /mnt/download</code><br>
+<code>portsnap fetch extract</code><br>
+<code>mkdir /mnt/download</code><br>
+<code>chown nobody:nogroup /mnt/download</code><br>
+<code>chmod 777 /mnt/download</code><br>
 - Add storage via the freenas gui: attach the share where sabnzbd downloads arrive to /mnt/download.<br>
 
 Method 1 : use the port (which I did NOT do, I deinstalled it again).<br>
