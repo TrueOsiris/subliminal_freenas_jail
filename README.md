@@ -5,7 +5,7 @@ Subliminal script to run as crontab entry in subliminal jail<br>
 
 Made a script that runs with crontab & bash.<br>
 You'll have to install bash first<br>
-<code>cd /usr/ports/shells/bash/ && make install clean</code>
+<code>cd /usr/ports/shells/bash/ && make install clean BATCH=yes</code>
 
 <code>crontab -e</code><br>
 says<br>
@@ -39,31 +39,31 @@ Lets add wget functionality to the jail<br>
 cd ~</code><br>
 
 Option A : Pull the latest stable release package either from python or github<br>
-<code>wget https://pypi.python.org/packages/source/s/subliminal/subliminal-0.7.4.tar.gz --no-check-certificate<br>
-tar -xvf subliminal-0.7.4.tar.gz<br>
-mv subliminal-0.7.4 /usr/share/<br>
-mv /usr/share/subliminal-0.7.4 /usr/share/subliminal</code><br>
+<code>wget https://pypi.python.org/packages/source/s/subliminal/subliminal-0.7.4.tar.gz --no-check-certificate</code><br>
+<code>tar -xvf subliminal-0.7.4.tar.gz</code><br>
+<code>mv subliminal-0.7.4 /usr/share/</code><br>
+<code>mv /usr/share/subliminal-0.7.4 /usr/share/subliminal</code><br>
 Option B : Better yet, be a betatester & grab the dev master branch. This gave me the 0.8-dev version (2014-10-16).<br>
-<code>wget https://github.com/Diaoul/subliminal/archive/master.zip --no-check-certificate<br>
-tar -xvf master.zip<br>
-mv subliminal-master /usr/share/<br>
-mv /usr/share/subliminal-master /usr/share/subliminal</code><br>
+<code>wget https://github.com/Diaoul/subliminal/archive/master.zip --no-check-certificate</code><br>
+<code>tar -xvf master.zip</code><br>
+<code>mv subliminal-master /usr/share/</code><br>
+<code>mv /usr/share/subliminal-master /usr/share/subliminal</code><br>
 
 Optional, open up this folder for usage & execution<br>
-<code>chown -R nobody:nogroup /usr/share/subliminal<br>
-chmod -R 777 /usr/share/subliminal</code><br>
+<code>chown -R nobody:nogroup /usr/share/subliminal</code><br>
+<code>chmod -R 777 /usr/share/subliminal</code><br>
 
 Install dependencies. Might be that the setup does this, but I did so manually<br>
-<code>cd /usr/ports/www/py-beautifulsoup/ && make install clean BATCH=yes<br>
-cd /usr/ports/multimedia/py-guessit && make install clean BATCH=yes<br>
-cd /usr/ports/www/py-requests && make install clean BATCH=yes<br>
-cd /usr/ports/multimedia/py-enzyme && make install clean BATCH=yes<br>
-cd /usr/ports/www/py-html5lib && make install clean BATCH=yes<br>
-cd /usr/ports/devel/py-dogpile.cache && make install clean BATCH=yes<br>
-cd /usr/ports/devel/py-babelfish && make install clean BATCH=yes<br>
-cd /usr/ports/textproc/py-charade && make install clean BATCH=yes<br>
-cd /usr/ports/textproc/py-pysrt && make install clean BATCH=yes<br>
-cd /usr/share/subliminal</code><br>
+<code>cd /usr/ports/www/py-beautifulsoup/ && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/multimedia/py-guessit && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/www/py-requests && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/multimedia/py-enzyme && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/www/py-html5lib && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/devel/py-dogpile.cache && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/devel/py-babelfish && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/textproc/py-charade && make install clean BATCH=yes</code><br>
+<code>cd /usr/ports/textproc/py-pysrt && make install clean BATCH=yes</code><br>
+<code>cd /usr/share/subliminal</code><br>
 
 
 Finally, build & install the package<br>
@@ -79,9 +79,10 @@ My scheduled job for Dutch subtitles :<br>
 I added the following to crontab using crontab -e<br>
 <code>30 10 * * * /mnt/it/dev/scripts/bash/subliminal_cron.sh</code><br>
 and subliminal_cron.sh has the following content:<br>
-<code>#!/bin/sh<br>
+<code>#!/bin/sh</code><br>
+<code>
 find /mnt/download/complete/ \( -iname "*.mkv" -or -iname "*.avi" -or -iname "*.mp4" \) -exec subliminal -l nl
---addic7ed-username myaddicteduser --addic7ed-password myaddictedpw -- "{}" \;<br>
-find /mnt/download/complete/ \( -iname "*.mkv" -or -iname "*.avi" -or -iname "*.mp4" \) -exec subliminal -l en
+--addic7ed-username myaddicteduser --addic7ed-password myaddictedpw -- "{}" \;</code><br>
+<code>find /mnt/download/complete/ \( -iname "*.mkv" -or -iname "*.avi" -or -iname "*.mp4" \) -exec subliminal -l en
 --addic7ed-username myaddicteduser --addic7ed-password myaddictedpw -- "{}" \;</code><br>
 
